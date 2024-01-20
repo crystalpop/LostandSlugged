@@ -1,7 +1,8 @@
 import React, {useRef, useState} from 'react'
 import {Button, Form, Card, Alert} from 'react-bootstrap'
 import { useAuth } from './contexts/AuthContext'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
+
 
 export default function Login() {
 
@@ -11,6 +12,7 @@ export default function Login() {
   const { login } = useAuth()
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
+  const navigate = useNavigate()
 
   async function handleSubmit(e){
     //console.log(error)
@@ -22,6 +24,8 @@ export default function Login() {
         setError('')
         setLoading(true)
         await login(emailRef.current.value, passwordRef.current.value )
+        navigate('../map')
+        //alert('Login Successful')
     } catch {
         setError('Failed to login')
     }
@@ -32,7 +36,7 @@ export default function Login() {
     <>
         <Card>
             <Card.Body>
-                <h2 className='text-center mb-4'>Sign Up</h2>
+                <h2 className='text-center mb-4'>Login</h2>
                 {error && <Alert variant="danger">{error}</Alert>}
 
                 <Form onSubmit={handleSubmit}>
@@ -45,7 +49,7 @@ export default function Login() {
                         <Form.Control type = 'password' ref = {passwordRef} required/>
                     </Form.Group>
                     
-                    <Button disabled={loading} className="w-100" type="submit">
+                    <Button disabled={loading} className="w-100" type="submit" >
                         Login
                     </Button>
                 </Form>
