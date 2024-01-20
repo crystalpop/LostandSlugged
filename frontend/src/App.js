@@ -1,6 +1,6 @@
 import React from 'react';
 import {NavLink, useNavigate} from 'react-router-dom';
-import './app.css';
+import './App.css';
 import background from "./assets/homepage_background.png";
 import logo from "./assets/logo.png";
 
