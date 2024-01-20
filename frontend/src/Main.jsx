@@ -5,6 +5,7 @@ import { ThemeProvider } from 'react-bootstrap'
 import './main.css'
 import Login from './Login.js'
 import Signup from './Signup.js'
+import Map from './pages/map.js'
 
 function Main() {
   return (
@@ -13,7 +14,7 @@ function Main() {
         <Route path='/' element={<App />} />
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
-        
+        <Route path='/map' element={<Map />} />
       </Routes>
       </BrowserRouter>
   );
