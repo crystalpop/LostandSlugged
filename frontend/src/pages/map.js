@@ -1,12 +1,13 @@
 import { MapContainer, TileLayer } from "react-leaflet"
 import "leaflet/dist/leaflet.css";
 import React from 'react';
-
 import '../styles/map.css'
+import {NavLink, useNavigate} from 'react-router-dom';
 
 function Map() {
+    const navigate = useNavigate();
     return (
-        <div>
+        <div className='map-container'>
         <MapContainer center={[36.9905, -122.0584]} zoom={15}>
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap/org/copyright">OpenStreetMap</a> contributors'
@@ -14,6 +15,7 @@ function Map() {
             />
     
         </MapContainer>
+        <button className='logout' onClick={()=> navigate('../')}>Logout</button>
         </div>
     );
 }
