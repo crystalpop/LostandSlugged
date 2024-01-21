@@ -77,5 +77,6 @@ npm i firebase
 npm i react-router-dom
 npm i react-bootstrap
 npm i react-leaflet
+npm i react-scroll
 npm install
 ```
