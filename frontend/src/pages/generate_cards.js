@@ -17,7 +17,7 @@ export default function GenCards({item_info}) {
     if (item_info == null) {
         return null;
     }
-    const [description, email, name] = item_info;
+    const [description, email, name, date_lost] = item_info;
     // let description = item_info.description;
     // let email = item_info.email;
     // let name = item_info.item_name;
@@ -26,10 +26,9 @@ export default function GenCards({item_info}) {
             marginBottom: '2%'
           }}><Card style={{ width: '100%', fontFamily:'Koulen', backgroundColor:'#E3E0E0', borderBlockColor:'white'}}>
           <Card.Body>
-            <Card.Title>Card Title</Card.Title>
+            <Card.Title>{name}</Card.Title>
             <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
+              {description}
             </Card.Text>
             <Button variant="primary" onClick={handleShow}>
             See More
@@ -46,7 +45,8 @@ export default function GenCards({item_info}) {
                     <Modal.Title>{name}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    {description}
+                    Date lost: {date_lost} <br />
+                    Description: {description}
                 </Modal.Body>
                 <Modal.Footer>
                     <a className="btn btn-danger" href ={"mailto: "+ email}>Contact</a>
