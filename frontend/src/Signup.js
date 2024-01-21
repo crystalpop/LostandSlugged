@@ -55,7 +55,7 @@ export default function SignUp() {
 
         }}>
             
-            <h2 className='text-center mb-4'>Sign Up</h2>
+            <h1 className='text-center mb-4'>Sign Up</h1>
                 
 
             <div className="d-flex align-items-center justify-content-center">

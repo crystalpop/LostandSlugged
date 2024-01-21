@@ -47,7 +47,7 @@ export default function Login() {
                     justifyContent: 'center'
 
         }}>
-        <h2 className='text-center mb-4'>Login</h2>
+        <h1 className='text-center mb-4'>Login</h1>
         <div className="d-flex align-items-center justify-content-center">
             <Card className='w-50'>
                 <Card.Body>
