@@ -113,6 +113,11 @@ function Map() {
     let [alert, changeAlert] = useState("");
     let [show, setShow] = useState(false);
 
+    // Shows the screen to input the item information
+    let [showAddItemsModal, setShowAddItemsModal] = useState(false);
+    const handleClose = () => setShowAddItemsModal(false);
+    const handleShow = () => setShowAddItemsModal(true);
+
     useEffect(() => {
       const fetchData = async () => {
         const result = await Get_items();
@@ -168,7 +173,9 @@ function Map() {
                 </p>
         <button className='logout' onClick={()=> navigate('../')}>Logout</button>
         <button className='add-item' onClick={()=> handleAddItems()}>+ Item</button>
-        <button className='confirm' onClick={()=> handleConfirmAddItems()} disabled = {!show} >{show ? "CONFIRM" :  "Click above :)"}</button>
+        <button className='confirm' onClick={()=> handleConfirmAddItems() + setShowAddItemsModal(true)} 
+        disabled = {!show} >{show ? "CONFIRM" :  "Click above :)"}</button>
+
         <Element className="element" id="scroll-container" style={{
             // position: 'relative',
             marginTop:'3%',
@@ -178,6 +185,27 @@ function Map() {
             {cards}
           </Element>
           </div>
+
+          <Modal
+                show={showAddItemsModal}
+                onHide={handleClose}
+                backdrop="static"
+                keyboard={false}
+                dialogClassName="modal-100w"
+                size="lg"
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title>Add Item</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    Describe the item you found: 
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Close
+                    </Button>
+                </Modal.Footer>
+                </Modal>
 
           </div>
 
