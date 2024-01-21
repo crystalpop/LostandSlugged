@@ -1,7 +1,7 @@
 import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from "react-leaflet"
 import "leaflet/dist/leaflet.css";
 import React from 'react';
-
+import Get_items from '../Add_Items/card_info.js'
 import { Icon } from "leaflet";
 // import MarkerClusterGroup from "react-leaflet-cluster";
 import '../styles/map.css'
