@@ -48,8 +48,9 @@ function GenCards() {
     const [show,setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    let description = "Ipsum molestiae natus adipisci modi eligendi? Debitis amet quae undecommodi aspernatur enim, consectetur. Cumque deleniti temporibus ipsam atque a dolores quisquam quisquam adipisci possimus laboriosam. Quibusdam facilis doloribus debitis! Sit quasi quod accusamus eos quod. Ab quos consequuntur eaque quo rem! Mollitia reiciendis porro quo magni incidunt dolore amet atque facilis ipsumdeleniti rem!";
     let email = 'transophia4@gmail.com';
-    let name = 'airpods'
+    let name = 'airpods';
     return (
         <Element name="scroll-container-first-element" style={{
             marginBottom: '2%'
@@ -68,15 +69,17 @@ function GenCards() {
                 onHide={handleClose}
                 backdrop="static"
                 keyboard={false}
+                dialogClassName="modal-100w"
+                size="lg"
             >
                 <Modal.Header closeButton>
                     <Modal.Title>{name}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    hehehaha
+                    {description}
                 </Modal.Body>
                 <Modal.Footer>
-                    <a className="btn btn-danger" href ={"mailto: "+email}>Contact</a>
+                    <a className="btn btn-danger" href ={"mailto: "+ email}>Contact</a>
                     <Button variant="secondary" onClick={handleClose}>
                         Close
                     </Button>
