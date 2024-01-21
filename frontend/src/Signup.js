@@ -3,7 +3,7 @@ import {Button, Form, Card, Alert} from 'react-bootstrap'
 import { useAuth } from './contexts/AuthContext'
 import {Link, useNavigate } from 'react-router-dom'
 import background from "./assets/homepage_background.png";
-import Text from 'react-text';
+
 
 
 
