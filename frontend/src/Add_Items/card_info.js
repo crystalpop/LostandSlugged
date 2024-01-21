@@ -1,20 +1,20 @@
-import { db, collection, getDocs } from '../Authentication/firebase.js';
-
+import { db, collection, getDocs, orderBy, query } from '../Authentication/firebase.js';
 
 export default async function Get_items() {
-    const querySnapshot = await getDocs(collection(db, "Lost items"));
+    const q = query(collection(db, "Lost items"), orderBy("date_lost", "asc"));
+    const querySnapshot = await getDocs(q);
     var data = [];
 
     querySnapshot.forEach((doc) => {
-        // console.log(doc.id, "=>", doc.data());
-        data.push({item_name: doc.data()["item_name"], 
-        // location_lost: doc.data()["location_lost"], 
-        latitude: doc.data()["latitude"],
-        longitude: doc.data()["longitude"],
-        found: doc.data()["found"], 
-        email: doc.data()["email"], 
-        description: doc.data()["description"], 
-        date_lost: doc.data()["date_lost"]})
+        data.push({
+            item_name: doc.data()["item_name"],
+            latitude: doc.data()["latitude"],
+            longitude: doc.data()["longitude"],
+            found: doc.data()["found"],
+            email: doc.data()["email"],
+            description: doc.data()["description"],
+            date_lost: doc.data()["date_lost"]
+        });
     });
 
     return data;
