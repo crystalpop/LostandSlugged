@@ -44,9 +44,6 @@ function LocationMarker() {
 }
 
 
-
-
-
 function GenCards() {
     const [show,setShow] = useState(false);
     const handleClose = () => setShow(false);
