@@ -33,9 +33,6 @@ export default function GenCards({item_info}) {
           }}><Card style={{ width: '98%', fontFamily:'Koulen', 
           backgroundColor:'#E3E0E0', borderBlockColor:'white'}} 
           className='bg-image hover-zoom'
-          onClick = {function(e) {
-            handleClick();
-          }}
           >
 
           <Card.Body className='w-100'>

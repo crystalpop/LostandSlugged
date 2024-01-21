@@ -21,8 +21,9 @@ function App() {
       </div>
     <p className='welcome-text'>Welcome! We are a team of UC undergraduates interested in 
       helping others find items that they have lost or found around 
-      the UCSC campus. Sign in below to start looking!
+      the UCSC campus.
     </p>
+    <p className='welcome-text'>Sign in below to start looking!</p>
     <div className='login-signup'>
     <button className='login-button' onClick={()=> navigate('./login')}>Login</button>
     <button className='signup-button' onClick={()=> navigate('./signup')}>Sign up</button>
