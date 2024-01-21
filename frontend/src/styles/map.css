@@ -4,6 +4,15 @@
     padding:0;
 }
 
+body, html {
+    overflow: hidden
+  }
+
+.koulen-regular {
+    font-family: "Koulen", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
 
 .leaflet-container {
     height: 100vh;
@@ -17,4 +26,54 @@
     transform: translate (-25%, -25%);
     display: flex;
     
+
+    height: 93vh;
+    width: 200%;
+    margin-left: 2%;
+    margin-top: 2%;
+    margin-right: 2%;
+    border-radius: 19px;
+}
+
+.map-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2%;
+    margin-right: 2%;
+    width: min-content;
+}
+
+.logout {
+    font-family: 'Koulen';
+    font-size: 275%;
+    margin-top: 2%;
+    height: 10vh;
+    width: 50vh;
+    border-radius: 19px;
+    background-color: #446293;
+    -webkit-text-fill-color: white;
+}
+
+.add-item {
+    font-family: 'Koulen';
+    font-size: 275%;
+    margin-top: 2%;
+    height: 5%;
+    width: 100px;
+    height: 10vh;
+    width: 50vh;
+    border-radius: 19px;
+    background-color: #567F5A;
+    -webkit-text-fill-color: white;
+}
+
+.element {
+    overflow-y: scroll;
+    overflow: auto;
+    height: 70vh;
 }
