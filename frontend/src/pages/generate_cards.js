@@ -13,7 +13,7 @@ export default function GenCards({item_info}) {
     const [show,setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    console.log(item_info)
+    // console.log(item_info)
     if (item_info == null) {
         return null;
     }
@@ -24,8 +24,8 @@ export default function GenCards({item_info}) {
     return (
         <Element name="scroll-container-first-element" style={{
             marginBottom: '2%'
-          }}><Card style={{ width: '100%', fontFamily:'Koulen', backgroundColor:'#E3E0E0', borderBlockColor:'white'}}>
-          <Card.Body>
+          }}><Card style={{ width: '98%', fontFamily:'Koulen', backgroundColor:'#E3E0E0', borderBlockColor:'white'}} className='bg-image hover-zoom'>
+          <Card.Body className='w-100'>
             <Card.Title>{name}</Card.Title>
             <Card.Text>
               {description}

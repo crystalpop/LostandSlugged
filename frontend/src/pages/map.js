@@ -14,7 +14,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 // Import Swiper React components
 import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll';
-import { Add_items } from "../Add_Items/Add_items.js";
+import { Add_items } from "../database/Add_items.js";
 let clickedAddItem = 0;
 let position_check_lat = 0;
 let position_check_lng = 0;
@@ -81,7 +81,7 @@ function Map() {
     const handleClose = () => setShowAddItemsModal(false);
     const handleShow = () => setShowAddItemsModal(true);
 
-// gets data from database
+    // gets data from database
     useEffect(() => {
       const fetchData = async () => {
         const result = await Get_items();
@@ -92,7 +92,7 @@ function Map() {
 
 
     let cards = [];  
-    console.log(data.length)
+    //console.log(data.length)
 
     // pushing everythjing from the database to the cards array, by looping through the data array
     for (let i=0; i < data.length; i++) {
@@ -123,9 +123,13 @@ function Map() {
       console.log(position_check_lat);
       console.log(position_check_lng);
       console.log(item_date);
+      // Add_items(date_lost, description, email, item_name, latitude, longitude)
+      Add_items(item_date, item_description, item_email, item_name, position_check_lat, position_check_lng);
       window.location.reload();
+
       // async Add_items(item_date, item_description, item_email, item_name = item_name, latitude=position_check_lat, longitude=position_check_lng)
       event.preventDefault();
+      
   }
     return (
         <div className='map-container'>

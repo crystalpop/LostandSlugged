@@ -102,6 +102,6 @@ padding: 5px;
     height: 65vh;
 }
 
-.Card:hover {
-    background-color: #446293;
+.card:hover {
+    transform: scale(1.03);
 }
