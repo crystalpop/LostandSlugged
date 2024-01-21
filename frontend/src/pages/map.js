@@ -107,11 +107,19 @@ function Map() {
     const navigate = useNavigate();
     // const data = Get_items();
     const [data, setData] = useState([]);
-
     let [alert, changeAlert] = useState("");
-
-
     let [show, setShow] = useState(false);
+
+    useEffect(() => {
+      const fetchData = async () => {
+        const result = await Get_items();
+        setData(result);
+      };
+      fetchData();
+    }, []);
+
+    let cards = [];
+
 
     
     for (let i=0; i < numCards; i++) {
