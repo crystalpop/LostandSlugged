@@ -23,6 +23,23 @@ body, html {
     border-radius: 19px;
 }
 
+.cluster-icon {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    background-color: blueviolet;
+    transform: translate (-25%, -25%);
+    display: flex;
+    
+
+    height: 93vh;
+    width: 200%;
+    margin-left: 2%;
+    margin-top: 2%;
+    margin-right: 2%;
+    border-radius: 19px;
+}
+
 .map-container {
     display: flex;
     flex-direction: row;
