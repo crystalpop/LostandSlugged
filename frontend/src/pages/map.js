@@ -63,9 +63,12 @@ function Map() {
     let [show, setShow] = useState(false);
 
     // Add Item Form Elements
-    let item_name;
-    let item_description;
-    let item_email;
+    let submitted_name;
+    let submitted_email;
+    let submitted_description;
+    let [item_name, setItemName] = useState(submitted_name);
+    let [item_description, setItemDescription] = useState(submitted_description);
+    let [item_email, setItemEmail] = useState(submitted_email);
     // need to get current date
     // crystal do coordinates
 
@@ -74,7 +77,7 @@ function Map() {
     const handleClose = () => setShowAddItemsModal(false);
     const handleShow = () => setShowAddItemsModal(true);
 
-    // gets data from database
+// gets data from database
     useEffect(() => {
       const fetchData = async () => {
         const result = await Get_items();
@@ -83,7 +86,7 @@ function Map() {
       fetchData();
     }, []);
 
-    
+
     let cards = [];  
     console.log(data.length)
 
@@ -109,6 +112,9 @@ function Map() {
     }
 
 
+    const handleSubmit = (event) => {
+      event.preventDefault();
+  }
     return (
         <div className='map-container'>
         <MapContainer center={[36.9905, -122.0584]} zoom={15}>
@@ -161,27 +167,30 @@ function Map() {
                 <Modal.Header closeButton>
                     <Modal.Title>Add An Item!</Modal.Title>
                 </Modal.Header>
+                <form onSubmit={handleSubmit}>
                 <Modal.Body>
-                <form onSubmit={console.log('hi')}>
                   <p>Name:</p>
-                <input type="text" value ={item_name} class="form-control">
+                <input type="text" value = {submitted_name} class="form-control" onChange={e => setItemName(e.target.value)}>
                     </input>
                     <br></br>
                     <p>Description:</p>
-                    <input type="text" value ={item_description} class="form-control">
+                    <input type="text" value ={submitted_description} class="form-control" onChange={e => setItemDescription(e.target.value)}>
                     </input>
                     <br></br>
                     <p>Email:</p>
-                    <input type="text" value ={item_email} class="form-control" placeholder="Enter your email to be contacted if lost/found.">
+                    <input type="text" value ={submitted_email} class="form-control" placeholder="Enter your email to be contacted if lost/found." onChange={e => setItemEmail(e.target.value)}>
                     </input>
-                    <button type="submit">Submit form</button>
-                    </form>
+                    <br></br>
                 </Modal.Body>
                 <Modal.Footer>
+                <Button type="submit" variant="secondary" onClick={handleSubmit}>
+                        Submit
+                    </Button>
                     <Button variant="secondary" onClick={handleClose}>
                         Close
                     </Button>
                 </Modal.Footer>
+                </form>
                 </Modal>
 
           </div>
