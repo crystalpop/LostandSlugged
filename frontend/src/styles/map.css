@@ -80,5 +80,5 @@ body, html {
 .element {
     overflow-y: scroll;
     overflow: auto;
-    height: vh;
+    height: 70vh;
 }
