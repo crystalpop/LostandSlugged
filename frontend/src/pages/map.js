@@ -62,11 +62,11 @@ function genCards() {
         </Element>
     )
 }
-
 function Map() {
     const numCards = 10;
     const navigate = useNavigate();
     let cards = [];
+    let [alert, changeAlert] = useState("");
     for (let i=0; i < numCards; i++) {
         cards.push(genCards());
     }
@@ -86,8 +86,9 @@ function Map() {
 
         </MapContainer>
         <div className='buttons'>
+        {alert}
         <button className='logout' onClick={()=> navigate('../')}>Logout</button>
-        <button className='add-item' onClick={()=> navigate('../')}>+ Item</button>
+        <button className='add-item' onClick={()=> changeAlert('Click on the map!')}>+ Item</button>
         <Element className="element" id="scroll-container" style={{
             // position: 'relative',
             marginTop:'3%',
