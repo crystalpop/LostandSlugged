@@ -1,4 +1,4 @@
-import { MapContainer, TileLayer, Marker, Popup, useMapEvents, flyTo } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup, useMapEvents, useMapEvent} from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import React from 'react';
 import Get_items from '../Add_Items/card_info.js'
@@ -14,6 +14,9 @@ import Modal from 'react-bootstrap/Modal';
 // Import Swiper React components
 import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll';
 import { Add_items } from "../database/Add_items.js";
+let lat = 36.9905;
+let lng = -122.058;
+
 
 let clickedAddItem = 0;
 let position_check_lat = 0;
@@ -21,6 +24,11 @@ let position_check_lng = 0;
 const customIcon = new Icon({
     iconUrl: require("../styles/pin_icon.png"),
     iconSize: [25, 38]
+});
+
+const customBigIcon = new Icon({
+  iconUrl: require("../styles/pin_icon.png"),
+  iconSize: [35, 48]
 });
 
 function LocationMarker() {
@@ -37,7 +45,6 @@ function LocationMarker() {
 
     });
 
-
     return (
         position && clickedAddItem?
         <Marker position={position} icon={customIcon}>
@@ -46,7 +53,6 @@ function LocationMarker() {
     );
 
 }
-
 
 // const data = [
 //   {
@@ -62,8 +68,6 @@ function Map() {
     const numCards = 10;
     const navigate = useNavigate();
     // const data = Get_items();
-    let [lat, setLat] = useState(36.9905);
-    let [lng, setLng] = useState(-122.058);
     const [data, setData] = useState([]);
     let [alert, changeAlert] = useState("");
     let [show, setShow] = useState(false);
@@ -153,13 +157,11 @@ function Map() {
           
           {data.map(marker => (
             <Marker position={[marker.latitude, marker.longitude]} icon={customIcon}>
-              <Popup> ADD POPUP</Popup>
+              <Popup> {marker.item_name} </Popup>
             </Marker>
           ))}
 
           <LocationMarker />
-    
-
         </MapContainer>
         <div className='buttons'>
             <p className='alert'>

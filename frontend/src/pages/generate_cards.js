@@ -6,14 +6,15 @@ import { Element } from 'react-scroll';
 import 'firebase/firestore';
 import 'firebase/auth';
 
-let lati;
-let long;
+export let lati;
+export let long;
 
 
 export default function GenCards({item_info}) {
     const [show,setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    const handleClick = () => console.log('hi');
     // let [lat, setLat] = useState(36.9905);
     // let [lng, setLng] = useState(-122.058);
     // console.log(item_info)
@@ -32,7 +33,9 @@ export default function GenCards({item_info}) {
           }}><Card style={{ width: '98%', fontFamily:'Koulen', 
           backgroundColor:'#E3E0E0', borderBlockColor:'white'}} 
           className='bg-image hover-zoom'
-          onClick = {() => (lati = item_info[4]) + (long = item_info[5])}
+          onClick = {function(e) {
+            handleClick();
+          }}
           >
 
           <Card.Body className='w-100'>
