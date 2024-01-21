@@ -56,9 +56,12 @@ body, html {
 
 }
 .confirm {
+    margin-top: 1%;
     font-family: 'Koulen';
-    border-color: white;
+    border-color: rgb(214, 212, 212);
     border-radius: 10px;
+    font-size: 150%;
+    
 }
 .logout {
     font-family: 'Koulen';

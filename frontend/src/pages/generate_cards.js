@@ -6,25 +6,35 @@ import { Element } from 'react-scroll';
 import 'firebase/firestore';
 import 'firebase/auth';
 
-
+let lati;
+let long;
 
 
 export default function GenCards({item_info}) {
     const [show,setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    // let [lat, setLat] = useState(36.9905);
+    // let [lng, setLng] = useState(-122.058);
     // console.log(item_info)
     if (item_info == null) {
         return null;
     }
-    const [description, email, name, date_lost] = item_info;
+    const [description, email, name, date_lost, latitude, longitude] = item_info;
+
+    
     // let description = item_info.description;
     // let email = item_info.email;
     // let name = item_info.item_name;
     return (
         <Element name="scroll-container-first-element" style={{
             marginBottom: '2%'
-          }}><Card style={{ width: '98%', fontFamily:'Koulen', backgroundColor:'#E3E0E0', borderBlockColor:'white'}} className='bg-image hover-zoom'>
+          }}><Card style={{ width: '98%', fontFamily:'Koulen', 
+          backgroundColor:'#E3E0E0', borderBlockColor:'white'}} 
+          className='bg-image hover-zoom'
+          onClick = {() => (lati = item_info[4]) + (long = item_info[5])}
+          >
+
           <Card.Body className='w-100'>
             <Card.Title>{name}</Card.Title>
             <Card.Text>

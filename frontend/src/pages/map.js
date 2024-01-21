@@ -1,4 +1,4 @@
-import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from "react-leaflet"
+import { MapContainer, TileLayer, Marker, Popup, useMapEvents, flyTo } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import React from 'react';
 import Get_items from '../Add_Items/card_info.js'
@@ -8,13 +8,13 @@ import '../styles/map.css'
 import {NavLink, useNavigate} from 'react-router-dom';
 import { useRef, useState, useEffect } from 'react';
 import GenCards from './generate_cards.js';
-
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 // Import Swiper React components
 import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll';
 import { Add_items } from "../database/Add_items.js";
+
 let clickedAddItem = 0;
 let position_check_lat = 0;
 let position_check_lng = 0;
@@ -62,6 +62,8 @@ function Map() {
     const numCards = 10;
     const navigate = useNavigate();
     // const data = Get_items();
+    let [lat, setLat] = useState(36.9905);
+    let [lng, setLng] = useState(-122.058);
     const [data, setData] = useState([]);
     let [alert, changeAlert] = useState("");
     let [show, setShow] = useState(false);
@@ -90,7 +92,6 @@ function Map() {
       fetchData();
     }, []);
 
-
     let cards = [];  
     //console.log(data.length)
 
@@ -99,7 +100,10 @@ function Map() {
         let description = data[i]["description"];
         let email = data[i]["email"];
         let item_name = data[i]["item_name"];
-        let item_info = [description, email, item_name]
+        let item_date = data[i]["date_lost"];
+        let longitude = data[i]["longitude"];
+        let latitude = data[i]["latitude"];
+        let item_info = [description, email, item_name, item_date, latitude, longitude]
         
         cards.push(<GenCards item_info={item_info} />)
     }
@@ -131,9 +135,13 @@ function Map() {
       event.preventDefault();
       
   }
+
+  
+  
+
     return (
         <div className='map-container'>
-        <MapContainer center={[36.9905, -122.0584]} zoom={15}>
+        <MapContainer center={[lat, lng]} zoom={15}>
 
            <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap/org/copyright">OpenStreetMap</a> contributors'
