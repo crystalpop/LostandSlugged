@@ -55,6 +55,9 @@ body, html {
     font-size: 200%;
 
 }
+.confirm {
+    font-family: 'Koulen';
+}
 .logout {
     font-family: 'Koulen';
     font-size: 275%;
@@ -95,4 +98,8 @@ padding: 5px;
     overflow-y: scroll;
     overflow: auto;
     height: 65vh;
+}
+
+.Card:hover {
+    background-color: #446293;
 }
