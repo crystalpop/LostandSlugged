@@ -74,6 +74,7 @@ function Map() {
     const handleClose = () => setShowAddItemsModal(false);
     const handleShow = () => setShowAddItemsModal(true);
 
+    // gets data from database
     useEffect(() => {
       const fetchData = async () => {
         const result = await Get_items();
@@ -82,13 +83,20 @@ function Map() {
       fetchData();
     }, []);
 
-    let cards = [];
-
-
     
-    for (let i=0; i < numCards; i++) {
-        cards.push(GenCards());
+    let cards = [];  
+    console.log(data.length)
+
+    // pushing everythjing from the database to the cards array, by looping through the data array
+    for (let i=0; i < data.length; i++) {
+        let description = data[i]["description"];
+        let email = data[i]["email"];
+        let item_name = data[i]["item_name"];
+        let item_info = [description, email, item_name]
+        
+        cards.push(<GenCards item_info={item_info} />)
     }
+
     function handleAddItems(){
         setShow(true);
         changeAlert("Click on the map!");

@@ -9,13 +9,18 @@ import 'firebase/auth';
 
 
 
-export default function GenCards() {
+export default function GenCards({item_info}) {
     const [show,setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    let description = "Ipsum molestiae natus adipisci modi eligendi? Debitis amet quae undecommodi aspernatur enim, consectetur. Cumque deleniti temporibus ipsam atque a dolores quisquam quisquam adipisci possimus laboriosam. Quibusdam facilis doloribus debitis! Sit quasi quod accusamus eos quod. Ab quos consequuntur eaque quo rem! Mollitia reiciendis porro quo magni incidunt dolore amet atque facilis ipsumdeleniti rem!";
-    let email = 'transophia4@gmail.com';
-    let name = 'airpods';
+    console.log(item_info)
+    if (item_info == null) {
+        return null;
+    }
+    const [description, email, name] = item_info;
+    // let description = item_info.description;
+    // let email = item_info.email;
+    // let name = item_info.item_name;
     return (
         <Element name="scroll-container-first-element" style={{
             marginBottom: '2%'
