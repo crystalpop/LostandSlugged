@@ -57,6 +57,8 @@ body, html {
 }
 .confirm {
     font-family: 'Koulen';
+    border-color: white;
+    border-radius: 10px;
 }
 .logout {
     font-family: 'Koulen';

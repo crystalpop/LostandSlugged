@@ -14,6 +14,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 // Import Swiper React components
 import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll';
+import { Add_items } from "../Add_Items/Add_items.js";
 let clickedAddItem = 0;
 let position_check_lat = 0;
 let position_check_lng = 0;
@@ -28,8 +29,8 @@ function LocationMarker() {
     const map = useMapEvents({
         click(e) {
             setPosition([e.latlng.lat, e.latlng.lng]);
-            position_check_lat = position[0];
-            position_check_lng = position[1];
+            position_check_lat = e.latlng.lat;
+            position_check_lng = e.latlng.lng;
             // write this position to database
 
         },
@@ -47,16 +48,16 @@ function LocationMarker() {
 }
 
 
-const data = [
-  {
-    latitude: 36,
-    longitude: 122
-  },
-  {
-  latitude: 35,
-  longitude: 122
-  }
-]
+// const data = [
+//   {
+//     latitude: 36,
+//     longitude: 122
+//   },
+//   {
+//   latitude: 35,
+//   longitude: 122
+//   }
+// ]
 function Map() {
     const numCards = 10;
     const navigate = useNavigate();
@@ -67,12 +68,13 @@ function Map() {
 
     // Add Item Form Elements
     let submitted_name;
+    let submitted_date;
     let submitted_email;
     let submitted_description;
     let [item_name, setItemName] = useState(submitted_name);
+    let [item_date, setItemDate] = useState(submitted_date);
     let [item_description, setItemDescription] = useState(submitted_description);
     let [item_email, setItemEmail] = useState(submitted_email);
-    // need to get current date
 
     // Shows the screen to input the item information
     let [showAddItemsModal, setShowAddItemsModal] = useState(false);
@@ -120,6 +122,9 @@ function Map() {
       console.log(item_email);
       console.log(position_check_lat);
       console.log(position_check_lng);
+      console.log(item_date);
+      window.location.reload();
+      // async Add_items(item_date, item_description, item_email, item_name = item_name, latitude=position_check_lat, longitude=position_check_lng)
       event.preventDefault();
   }
     return (
@@ -178,6 +183,10 @@ function Map() {
                 <Modal.Body>
                   <p>Name:</p>
                 <input type="text" value = {submitted_name} class="form-control" onChange={e => setItemName(e.target.value)}>
+                    </input>
+                    <br></br>
+                    <p>Date Found:</p>
+                <input type="text" value = {submitted_date} class="form-control" onChange={e => setItemDate(e.target.value)}>
                     </input>
                     <br></br>
                     <p>Description:</p>
