@@ -15,6 +15,7 @@ import Modal from 'react-bootstrap/Modal';
 // Import Swiper React components
 import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll';
 let clickedAddItem = 0;
+let position_check = []; 
 const customIcon = new Icon({
     iconUrl: require("../styles/pin_icon.png"),
     iconSize: [25, 38]
@@ -25,8 +26,8 @@ function LocationMarker() {
 
     const map = useMapEvents({
         click(e) {
-
             setPosition([e.latlng.lat, e.latlng.lng]);
+            position_check = position;
             // write this position to database
 
         },
@@ -70,7 +71,7 @@ function Map() {
     let [item_description, setItemDescription] = useState(submitted_description);
     let [item_email, setItemEmail] = useState(submitted_email);
     // need to get current date
-    // crystal do coordinates
+    let pos = position_check;
 
     // Shows the screen to input the item information
     let [showAddItemsModal, setShowAddItemsModal] = useState(false);
@@ -109,10 +110,15 @@ function Map() {
       setShow(false);
       changeAlert("");
       clickedAddItem = 0;
+      pos = position_check;
     }
 
 
     const handleSubmit = (event) => {
+      console.log(item_name);
+      console.log(item_description);
+      console.log(item_email);
+      console.log(position_check);
       event.preventDefault();
   }
     return (
