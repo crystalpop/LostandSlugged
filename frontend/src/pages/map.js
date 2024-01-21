@@ -62,6 +62,12 @@ function Map() {
     let [alert, changeAlert] = useState("");
     let [show, setShow] = useState(false);
 
+    // Add Item Form Elements
+    let item_name;
+    let item_description;
+    let item_email;
+    // need to get current date
+    // crystal do coordinates
 
     // Shows the screen to input the item information
     let [showAddItemsModal, setShowAddItemsModal] = useState(false);
@@ -90,7 +96,7 @@ function Map() {
     }
     function handleConfirmAddItems(){
       setShow(false);
-      changeAlert("Items Added!");
+      changeAlert("");
       clickedAddItem = 0;
     }
 
@@ -145,10 +151,23 @@ function Map() {
                 size="lg"
             >
                 <Modal.Header closeButton>
-                    <Modal.Title>Add Item</Modal.Title>
+                    <Modal.Title>Add An Item!</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    Describe the item you found: 
+                <form onSubmit={console.log('hi')}>
+                  <p>Name:</p>
+                <input type="text" value ={item_name} class="form-control">
+                    </input>
+                    <br></br>
+                    <p>Description:</p>
+                    <input type="text" value ={item_description} class="form-control">
+                    </input>
+                    <br></br>
+                    <p>Email:</p>
+                    <input type="text" value ={item_email} class="form-control" placeholder="Enter your email to be contacted if lost/found.">
+                    </input>
+                    <button type="submit">Submit form</button>
+                    </form>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
