@@ -8,3 +8,13 @@
 .leaflet-container {
     height: 100vh;
 }
+
+.cluster-icon {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    background-color: blueviolet;
+    transform: translate (-25%, -25%);
+    display: flex;
+    
+}
