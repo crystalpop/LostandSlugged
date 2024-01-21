@@ -15,7 +15,12 @@ body, html {
   }
 
 .leaflet-container {
-    height: 100vh;
+    height: 93vh;
+    width: 200%;
+    margin-left: 2%;
+    margin-top: 2%;
+    margin-right: 2%;
+    border-radius: 19px;
 }
 
 .cluster-icon {

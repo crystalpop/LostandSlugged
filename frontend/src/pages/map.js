@@ -4,10 +4,13 @@ import React from 'react';
 
 import { Icon } from "leaflet";
 // import MarkerClusterGroup from "react-leaflet-cluster";
-import { useState } from "react";
-
 import '../styles/map.css'
-
+import {NavLink, useNavigate} from 'react-router-dom';
+import { useRef, useState } from 'react';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+// Import Swiper React components
+import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll';
 
 
 const customIcon = new Icon({
@@ -22,6 +25,7 @@ function LocationMarker() {
         click(e) {
 
             setPosition([e.latlng.lat, e.latlng.lng]);
+            // write this position to database
 
         },
 
@@ -39,16 +43,8 @@ function LocationMarker() {
 }
 
 
-function Map() {
 
 
-import '../styles/map.css'
-import {NavLink, useNavigate} from 'react-router-dom';
-import { useRef, useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-// Import Swiper React components
-import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll';
 function genCards() {
     return (
         <Element name="scroll-container-first-element" style={{
@@ -66,6 +62,7 @@ function genCards() {
         </Element>
     )
 }
+
 function Map() {
     const numCards = 10;
     const navigate = useNavigate();
