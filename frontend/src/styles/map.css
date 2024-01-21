@@ -48,11 +48,13 @@ body, html {
 .buttons {
     display: flex;
     flex-direction: column;
-    margin-top: 2%;
     margin-right: 2%;
     width: min-content;
 }
+.alert {
+    font-size: 200%;
 
+}
 .logout {
     font-family: 'Koulen';
     font-size: 275%;
@@ -92,5 +94,5 @@ padding: 5px;
 .element {
     overflow-y: scroll;
     overflow: auto;
-    height: 68vh;
+    height: 65vh;
 }

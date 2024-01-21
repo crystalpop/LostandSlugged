@@ -7,11 +7,12 @@ import { Icon } from "leaflet";
 import '../styles/map.css'
 import {NavLink, useNavigate} from 'react-router-dom';
 import { useRef, useState } from 'react';
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 // Import Swiper React components
 import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll';
-
+let clickedAddItem = 0;
 const customIcon = new Icon({
     iconUrl: require("../styles/pin_icon.png"),
     iconSize: [25, 38]
@@ -32,9 +33,8 @@ function LocationMarker() {
 
 
     return (
-        position ?
+        position && clickedAddItem?
         <Marker position={position} icon={customIcon}>
-            <Popup> ADD POPUP</Popup>
         </Marker>
         : null
     );
@@ -44,7 +44,12 @@ function LocationMarker() {
 
 
 
-function genCards() {
+function GenCards() {
+    const [show,setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+    let email = 'transophia4@gmail.com';
+    let name = 'airpods'
     return (
         <Element name="scroll-container-first-element" style={{
             marginBottom: '2%'
@@ -55,10 +60,32 @@ function genCards() {
               Some quick example text to build on the card title and make up the
               bulk of the card's content.
             </Card.Text>
-            <button className='see-more'>See more</button>
+            <Button variant="primary" onClick={handleShow}>
+            See More
+            </Button>
+            <Modal
+                show={show}
+                onHide={handleClose}
+                backdrop="static"
+                keyboard={false}
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title>{name}</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    hehehaha
+                </Modal.Body>
+                <Modal.Footer>
+                    <a className="btn btn-danger" href ={"mailto: "+email}>Contact</a>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Close
+                    </Button>
+                </Modal.Footer>
+                </Modal>
           </Card.Body>
         </Card>
         </Element>
+
     )
 }
 function Map() {
@@ -67,8 +94,9 @@ function Map() {
     let cards = [];
     let [alert, changeAlert] = useState("");
     for (let i=0; i < numCards; i++) {
-        cards.push(genCards());
+        cards.push(GenCards());
     }
+
 
     return (
         <div className='map-container'>
@@ -85,9 +113,11 @@ function Map() {
 
         </MapContainer>
         <div className='buttons'>
-        {alert}
+            <p className='alert'>
+                {alert}
+                </p>
         <button className='logout' onClick={()=> navigate('../')}>Logout</button>
-        <button className='add-item' onClick={()=> changeAlert('Click on the map!')}>+ Item</button>
+        <button className='add-item' onClick={()=> changeAlert('Click on the map!') + (clickedAddItem = 1)}>+ Item</button>
         <Element className="element" id="scroll-container" style={{
             // position: 'relative',
             marginTop:'3%',
@@ -96,9 +126,10 @@ function Map() {
           }}>
             {cards}
           </Element>
-        </div>
-        </div>
-        
+          </div>
+
+          </div>
+
     );
 }
 
