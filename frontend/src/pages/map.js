@@ -110,6 +110,7 @@ function Map() {
     let [alert, changeAlert] = useState("");
     let [show, setShow] = useState(false);
 
+
     // Shows the screen to input the item information
     let [showAddItemsModal, setShowAddItemsModal] = useState(false);
     const handleClose = () => setShowAddItemsModal(false);
