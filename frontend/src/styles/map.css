@@ -48,11 +48,13 @@ body, html {
 .buttons {
     display: flex;
     flex-direction: column;
-    margin-top: 2%;
     margin-right: 2%;
     width: min-content;
 }
+.alert {
+    font-size: 200%;
 
+}
 .logout {
     font-family: 'Koulen';
     font-size: 275%;
@@ -62,6 +64,17 @@ body, html {
     border-radius: 19px;
     background-color: #446293;
     -webkit-text-fill-color: white;
+    border-color: white;
+}
+
+.see-more {
+    font-family: 'Koulen';
+    -webkit-text-fill-color: white;
+background-color: #446293;
+border-radius: 10px;
+width: max-content;
+border-color: white;
+padding: 5px;
 }
 
 .add-item {
@@ -75,10 +88,11 @@ body, html {
     border-radius: 19px;
     background-color: #567F5A;
     -webkit-text-fill-color: white;
+    border-color: white;
 }
 
 .element {
     overflow-y: scroll;
     overflow: auto;
-    height: 70vh;
+    height: 65vh;
 }

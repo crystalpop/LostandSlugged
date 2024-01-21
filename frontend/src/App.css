@@ -17,18 +17,21 @@ h1 {
     margin-top: 8%;
     filter:drop-shadow(0px 4px rgba(3, 3, 3, 0.207));
 }
-
+.slug {
+    margin-top: 4%;
+}
 .welcome-text {
     font-family: 'Kodchasan';
     margin-left: 10%;
     margin-right: 10%;
+    font-weight: bold;
     -webkit-text-fill-color: white;
     font-size: 200%;
     filter: drop-shadow(0px 2px rgba(3, 3, 3, 0.207));
 }
 
 .home-logo {
-    margin-left: 30%;
+    margin-left: 20%;
 }
 
 .login-signup {
@@ -47,8 +50,8 @@ h1 {
     padding: 5%;
     margin-left: 90%;
     border-radius: 12px;
-    -webkit-text-fill-color: #47c4da;
-    border-color: #c0d0d3;
+    -webkit-text-fill-color: #3C98D7;
+    border-color: white;
 
 }
 
@@ -61,7 +64,7 @@ h1 {
     margin-left: 10%;
     margin-right: -500%;
     border-radius: 12px;
-    -webkit-text-fill-color: #47c4da;
-    border-color: #c0d0d3;
+    -webkit-text-fill-color: #3C98D7;
+    border-color: white;
 
 }
