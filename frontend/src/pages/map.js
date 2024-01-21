@@ -12,7 +12,6 @@ import Card from 'react-bootstrap/Card';
 // Import Swiper React components
 import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll';
 
-
 const customIcon = new Icon({
     iconUrl: require("../styles/pin_icon.png"),
     iconSize: [25, 38]
@@ -49,14 +48,14 @@ function genCards() {
     return (
         <Element name="scroll-container-first-element" style={{
             marginBottom: '2%'
-          }}><Card style={{ width: '100%' }}>
+          }}><Card style={{ width: '100%', fontFamily:'Koulen', backgroundColor:'#E3E0E0', borderBlockColor:'white'}}>
           <Card.Body>
             <Card.Title>Card Title</Card.Title>
             <Card.Text>
               Some quick example text to build on the card title and make up the
               bulk of the card's content.
             </Card.Text>
-            <Button variant="primary">Go somewhere</Button>
+            <button className='see-more'>See more</button>
           </Card.Body>
         </Card>
         </Element>

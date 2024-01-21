@@ -17,7 +17,7 @@ function App() {
     <div className='homepage-container'>
       <div className='title'>
         <img className='home-logo' src={logo} width={200} height={200} ></img>
-      <h1>Lost and Slugged</h1>
+      <h1 className='slug'>Lost and Slugged</h1>
       </div>
     <p className='welcome-text'>Welcome! We are a team of UC undergraduates interested in 
       helping others find items that they have lost or found around 
