@@ -8,7 +8,6 @@ import '../styles/map.css'
 import {NavLink, useNavigate} from 'react-router-dom';
 
 import { useRef, useState, useEffect } from 'react';
-import Button from 'react-bootstrap/Button';
 
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
@@ -43,9 +42,6 @@ function LocationMarker() {
     );
 
 }
-
-
-
 
 
 function GenCards() {
