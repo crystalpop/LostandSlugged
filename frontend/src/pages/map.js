@@ -96,8 +96,20 @@ function Map() {
     const navigate = useNavigate();
     let cards = [];
     let [alert, changeAlert] = useState("");
+    let [show, setShow] = useState(false);
+    
     for (let i=0; i < numCards; i++) {
         cards.push(GenCards());
+    }
+    function handleAddItems(){
+        setShow(true);
+        changeAlert("Click on the map!");
+        clickedAddItem = 1;
+    }
+    function handleConfirmAddItems(){
+      setShow(false);
+      changeAlert("Items Added!");
+      clickedAddItem = 0;
     }
 
 
@@ -120,7 +132,8 @@ function Map() {
                 {alert}
                 </p>
         <button className='logout' onClick={()=> navigate('../')}>Logout</button>
-        <button className='add-item' onClick={()=> changeAlert('Click on the map!') + (clickedAddItem = 1)}>+ Item</button>
+        <button className='add-item' onClick={()=> handleAddItems()}>+ Item</button>
+        <button className='confirm' onClick={()=> handleConfirmAddItems()} disabled = {!show} >{show ? "CONFIRM" :  "Click above :)"}</button>
         <Element className="element" id="scroll-container" style={{
             // position: 'relative',
             marginTop:'3%',
