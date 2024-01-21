@@ -6,7 +6,10 @@ import { Icon } from "leaflet";
 // import MarkerClusterGroup from "react-leaflet-cluster";
 import '../styles/map.css'
 import {NavLink, useNavigate} from 'react-router-dom';
-import { useRef, useState } from 'react';
+
+import { useRef, useState, useEffect } from 'react';
+import Button from 'react-bootstrap/Button';
+
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
@@ -40,6 +43,7 @@ function LocationMarker() {
     );
 
 }
+
 
 
 
@@ -90,13 +94,29 @@ function GenCards() {
         </Element>
 
     )
+
 }
+const data = [
+  {
+    latitude: 36,
+    longitude: 122
+  },
+  {
+  latitude: 35,
+  longitude: 122
+  }
+]
 function Map() {
     const numCards = 10;
     const navigate = useNavigate();
-    let cards = [];
+    // const data = Get_items();
+    const [data, setData] = useState([]);
+
     let [alert, changeAlert] = useState("");
+
+
     let [show, setShow] = useState(false);
+
     
     for (let i=0; i < numCards; i++) {
         cards.push(GenCards());
@@ -122,6 +142,14 @@ function Map() {
             url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
 
           />
+
+
+          
+          {data.map(marker => (
+            <Marker position={[marker.latitude, marker.longitude]} icon={customIcon}>
+              <Popup> ADD POPUP</Popup>
+            </Marker>
+          ))}
 
           <LocationMarker />
     
