@@ -1,7 +1,7 @@
 # VIDEO DEMO
 
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/FasX_sd4g4s&/0.jpg)](https://www.youtube.com/watch?v=FasX_sd4g4s&)
+[![Demo](https://img.youtube.com/vi/FasX_sd4g4s&/0.jpg)](https://www.youtube.com/watch?v=FasX_sd4g4s&)
 
 # Getting Started with Create React App
 
