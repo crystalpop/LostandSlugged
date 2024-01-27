@@ -1,6 +1,6 @@
 # VIDEO DEMO
 
-![YouTube Video](https://gist.github.com/YOUR_USERNAME/caa865cbd274a186d8881de666cf09f9.js)
+![Demo](https://gist.github.com/YOUR_USERNAME/caa865cbd274a186d8881de666cf09f9.js)
 
 
 # Getting Started with Create React App
