@@ -1,7 +1,7 @@
 # VIDEO DEMO
 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/FasX_sd4g4s?si=3pTOVnK30BplUQpi" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/FasX_sd4g4s?si=3pTOVnK30BplUQpi" title="YouTube video player" frameborder="0"></iframe>
 
 # Getting Started with Create React App
 
